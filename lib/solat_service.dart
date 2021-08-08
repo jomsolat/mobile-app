@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-Future<Solat> fetchSolat() async {
-  // TODO: change url to get zone from function parameter for dynamic call
-  final response =
-      await http.get(Uri.parse('https://api.jomsolat.org/zone/PRK06'));
+Future<Solat> fetchSolat(var zoneId) async {
+  const url = 'https://api.jomsolat.org/zone/';
+  if (zoneId == null) zoneId = 'WLY01';
+  final response = await http.get(Uri.parse(url + zoneId));
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,

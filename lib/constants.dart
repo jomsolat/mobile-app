@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
 
-const TextStyle textStyle30 = TextStyle(
+const TextStyle kTextStyle30 = TextStyle(
   fontSize: 30.0,
 );
