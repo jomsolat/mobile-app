@@ -4,6 +4,9 @@ A fast waktu solat mobile app
 
 Written in Flutter 2.0
 
+## Preview
+![image info](sample.gif)
+
 ## Getting Started
 
 Get dependencies:
