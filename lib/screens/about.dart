@@ -37,10 +37,20 @@ class _AboutState extends State<About> {
                 ),
                 onTap: () => launch('https://jomsolat.org'),
               ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Text(
+                'Dedicated to N',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
               Container(
                 margin: EdgeInsets.all(20.0),
                 child: Text(
-                  'Aplikasi ini diberikan secara percuma tanpa apa-apa bayaran. Hanya diminta doakan keberkatan, keselamatan, kesihatan dan kebahagiaan ke atas orang yang saya sayang.',
+                  'Aplikasi ini adalah percuma tanpa apa-apa bayaran. Hanya diminta doakan keberkatan, keselamatan, kesihatan dan kebahagiaan ke atas orang yang saya sayang.',
                   style: TextStyle(
                     fontSize: 18.0,
                     fontStyle: FontStyle.italic,
