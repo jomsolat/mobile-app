@@ -153,12 +153,11 @@ class _ChangeZoneState extends State<ChangeZone> {
     ]
   };
 
-  Future<String> _getStateList() async {
+  Future<void> _getStateList() async {
     var data = await json.decode(json.encode(stateJson));
     setState(() {
       statesList = data['state'];
     });
-    return '';
   }
 
   // Get State information by API
@@ -166,7 +165,7 @@ class _ChangeZoneState extends State<ChangeZone> {
   var _myCity;
 
   String cityInfoUrl = 'https://api.jomsolat.org/zone/state/';
-  Future<String> _getCitiesList() async {
+  Future<void> _getCitiesList() async {
     await http
         .get(Uri.parse(cityInfoUrl + _myState.toString()))
         .then((response) {
@@ -175,6 +174,5 @@ class _ChangeZoneState extends State<ChangeZone> {
         citiesList = data;
       });
     });
-    return '';
   }
 }
