@@ -4,6 +4,7 @@ import 'package:jomsolat/functions.dart';
 import 'package:jomsolat/constants.dart';
 import 'package:jomsolat/screens/change_zone.dart';
 import 'package:jomsolat/screens/about.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class SolatBoard extends StatefulWidget {
   SolatBoard({Key? key}) : super(key: key);
@@ -61,7 +62,7 @@ class _SolatBoardState extends State<SolatBoard> {
                         Text(
                           snapshot.data!.title,
                           style: TextStyle(
-                            fontSize: 30.0,
+                            fontSize: 25.0,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -220,7 +221,10 @@ class _SolatBoardState extends State<SolatBoard> {
                 }
 
                 // By default, show a loading spinner.
-                return CircularProgressIndicator();
+                return SpinKitDoubleBounce(
+                  color: Colors.white,
+                  size: 50.0,
+                );
               },
             ),
             Row(
