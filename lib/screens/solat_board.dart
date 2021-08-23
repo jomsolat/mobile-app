@@ -32,7 +32,7 @@ class _SolatBoardState extends State<SolatBoard> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(
-              height: 50.0,
+              height: 30.0,
             ),
             FutureBuilder<Solat>(
               future: futureSolat,

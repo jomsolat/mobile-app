@@ -41,10 +41,10 @@ class _AboutState extends State<About> {
                 height: 20.0,
               ),
               Text(
-                'Dedicated to N',
+                'Dedicated to N ❤',
                 style: TextStyle(
-                  fontSize: 18.0,
-                  fontStyle: FontStyle.italic,
+                  color: Colors.grey.shade500,
+                  fontSize: 12.0,
                 ),
               ),
               Container(
