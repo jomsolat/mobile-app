@@ -41,61 +41,14 @@ class _AboutState extends State<About> {
                 height: 20.0,
               ),
               Text(
-                'Dedicated to N ❤',
+                'Dedicated to NH ❤',
                 style: TextStyle(
                   color: Colors.grey.shade500,
                   fontSize: 12.0,
                 ),
               ),
-              Container(
-                margin: EdgeInsets.all(20.0),
-                child: Text(
-                  'Aplikasi ini adalah percuma tanpa apa-apa bayaran. Hanya diminta doakan keberkatan, keselamatan, kesihatan dan kebahagiaan ke atas orang yang saya sayang.',
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontStyle: FontStyle.italic,
-                  ),
-                ),
-              ),
-              Text(
-                'Terima kasih',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
               SizedBox(
-                height: 50.0,
-              ),
-              Container(
-                child: Text('Anda juga boleh menyumbang ke'),
-              ),
-              Container(
-                child: Text('Tahfiz Al-Iman Bangi Avenue:'),
-              ),
-              SizedBox(
-                height: 15.0,
-              ),
-              Container(
-                child: Text(
-                  'TAHFIZ AL-IMAN',
-                  style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
-                ),
-              ),
-              Container(
-                child: Text(
-                  'MAYBANK ISLAMIC',
-                  style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
-                ),
-              ),
-              Container(
-                child: Text(
-                  '562263565705',
-                  style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
-                ),
-              ),
-              SizedBox(
-                height: 50.0,
+                height: 100.0,
               ),
               MaterialButton(
                 minWidth: 200.0,
