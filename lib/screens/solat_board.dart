@@ -26,14 +26,15 @@ class _SolatBoardState extends State<SolatBoard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[850],
+      appBar: AppBar(
+        backgroundColor: Colors.grey[850],
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SizedBox(
-              height: 30.0,
-            ),
             FutureBuilder<Solat>(
               future: futureSolat,
               builder: (context, snapshot) {
@@ -227,46 +228,44 @@ class _SolatBoardState extends State<SolatBoard> {
                 );
               },
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return About();
-                    }));
-                  },
-                  child: Icon(
-                    Icons.info,
-                    color: Colors.green.shade500,
-                    size: 50.0,
-                  ),
-                ),
-                TextButton(
-                  onPressed: () async {
-                    var zoneId = await Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return ChangeZone();
-                    }));
-                    setState(() {
-                      if (zoneId != null) {
-                        _zoneId = zoneId;
-                        futureSolat = fetchSolat(zoneId);
-                      }
-                    });
-                  },
-                  child: Icon(
-                    Icons.location_pin,
-                    color: Colors.green.shade500,
-                    size: 50.0,
-                  ),
-                ),
-              ],
-            ),
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.info),
+            label: 'Info',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.location_pin),
+            label: 'Zon',
+          ),
+        ],
+        selectedItemColor: Colors.green.shade600,
+        unselectedItemColor: Colors.green.shade600,
+        onTap: onItemTapped,
+      ),
     );
+  }
+
+  void onItemTapped(int index) async {
+    if (index == 0) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return About();
+      }));
+    }
+    if (index == 1) {
+      var zoneId =
+          await Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return ChangeZone();
+      }));
+      setState(() {
+        if (zoneId != null) {
+          _zoneId = zoneId;
+          futureSolat = fetchSolat(zoneId);
+        }
+      });
+    }
   }
 }
