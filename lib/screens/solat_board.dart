@@ -238,6 +238,10 @@ class _SolatBoardState extends State<SolatBoard> {
             label: 'Info',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.refresh),
+            label: '',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.location_pin),
             label: 'Zon',
           ),
@@ -256,6 +260,14 @@ class _SolatBoardState extends State<SolatBoard> {
       }));
     }
     if (index == 1) {
+      setState(() {
+        if (_zoneId != null) {
+          print('Refresh ' + _zoneId);
+          futureSolat = fetchSolat(_zoneId);
+        }
+      });
+    }
+    if (index == 2) {
       var zoneId =
           await Navigator.push(context, MaterialPageRoute(builder: (context) {
         return ChangeZone();
