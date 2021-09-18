@@ -1,8 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jomsolat/screens/solat_board.dart';
+import 'package:jomsolat/utils/user_simple_preferences.dart';
 
-void main() => runApp(JomSolatApp());
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await UserSimplePreferences.init();
+  runApp(JomSolatApp());
+}
 
 class JomSolatApp extends StatelessWidget {
   @override

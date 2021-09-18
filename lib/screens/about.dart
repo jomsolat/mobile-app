@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:package_info/package_info.dart';
 
 class About extends StatefulWidget {
   const About({Key? key}) : super(key: key);
@@ -10,6 +11,26 @@ class About extends StatefulWidget {
 }
 
 class _AboutState extends State<About> {
+  PackageInfo _packageInfo = PackageInfo(
+    appName: 'Unknown',
+    packageName: 'Unknown',
+    version: 'Unknown',
+    buildNumber: 'Unknown',
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    _initPackageInfo();
+  }
+
+  Future<void> _initPackageInfo() async {
+    final PackageInfo info = await PackageInfo.fromPlatform();
+    setState(() {
+      _packageInfo = info;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +60,16 @@ class _AboutState extends State<About> {
               ),
               SizedBox(
                 height: 20.0,
+              ),
+              Text(
+                'v' + _packageInfo.version,
+                style: TextStyle(
+                  color: Colors.grey.shade500,
+                  fontSize: 20.0,
+                ),
+              ),
+              SizedBox(
+                height: 30.0,
               ),
               Text(
                 'Dedicated to NH ❤',

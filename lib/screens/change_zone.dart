@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:jomsolat/utils/user_simple_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ChangeZone extends StatefulWidget {
   @override
@@ -8,6 +10,8 @@ class ChangeZone extends StatefulWidget {
 }
 
 class _ChangeZoneState extends State<ChangeZone> {
+  SharedPreferences? preferences;
+
   @override
   void initState() {
     _getStateList();
@@ -118,7 +122,10 @@ class _ChangeZoneState extends State<ChangeZone> {
               'OK',
               style: TextStyle(fontSize: 20.0),
             ),
-            onPressed: () {
+            onPressed: () async {
+              if (_myCity != null) {
+                UserSimplePreferences.setSelectedZone(_myCity);
+              }
               Navigator.pop(context, _myCity);
             },
           ),

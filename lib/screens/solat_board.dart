@@ -5,6 +5,7 @@ import 'package:jomsolat/constants.dart';
 import 'package:jomsolat/screens/change_zone.dart';
 import 'package:jomsolat/screens/about.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:jomsolat/utils/user_simple_preferences.dart';
 
 class SolatBoard extends StatefulWidget {
   SolatBoard({Key? key}) : super(key: key);
@@ -20,16 +21,14 @@ class _SolatBoardState extends State<SolatBoard> {
   @override
   void initState() {
     super.initState();
-    futureSolat = fetchSolat(null);
+    _zoneId = UserSimplePreferences.getSelectedZone;
+    futureSolat = fetchSolat(_zoneId);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[850],
-      appBar: AppBar(
-        backgroundColor: Colors.grey[850],
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
